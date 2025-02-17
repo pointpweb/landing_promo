@@ -1,0 +1,557 @@
+<!-- RESET CSS - START -->
+<style>
+
+    .font-open-sans .section .section-title,
+    .font-open-sans .block-wysiwyg h2,
+    .font-open-sans .block-wysiwyg p {
+        font-family: "Open Sans", sans-serif;
+    }
+
+    /***** Global spaces - START *****/
+    .page-template-builder .block-template-builder .container,
+    .page-template-builder .block-template-builder,
+    .tw-px-6,
+    .page-template-builder,
+    .section-simple-block-text .container,
+    .block-wysiwyg p,
+    .block-wysiwyg ol li, 
+    .block-wysiwyg ul li {
+        padding: 0;
+    }
+
+    .page-template-builder .section-template-builder, 
+    .page-template-builder .block-template-builder,
+    .tw-container,
+    .tw-my-4,
+    #status-messages-placeholder,
+    .section-simple-block-text .container,
+    .section-simple-block-text .section-title,
+    .block-wysiwyg img,
+    .block-wysiwyg img:not([data-not-responsive="1"]),
+    .block-wysiwyg ol, 
+    .block-wysiwyg ul,
+    .block-wysiwyg ul li:before {
+        margin: 0;
+    }
+
+    .tw-container,
+    .section-simple-block-text .container {
+        max-width: 1480px;
+    }
+    /***** Global spaces - END *****/
+
+    /***** Breadcrumb - START *****/
+    .builder-header:not(#builderHeader) {
+        display: none;
+    }
+
+    .block.block-breadcrumb {
+        width: 100%;
+        margin: 0 0 8px;
+    }
+
+    @media (min-width: 768px) {
+        .block.block-breadcrumb {
+            margin: 8px 40px;
+        }
+
+        .block.block-breadcrumb .container {
+            padding: 0;
+        }
+    }
+    
+    .block-breadcrumb ul {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        white-space: normal;
+    }
+    
+    .block-breadcrumb .breadcrumb li:first-child {
+        display: block;
+    }
+
+    .block-breadcrumb .breadcrumb li:not(:first-child) {
+        display: flex;
+        align-items: center;
+        margin-left: 8px;
+        column-gap: 8px;
+    }
+
+    .block-breadcrumb li:before {
+        position: unset;
+        left: unset;
+        bottom: unset;
+    }
+    
+    .block-breadcrumb + #status-messages-placeholder {
+        margin: 0;
+    }
+    /***** Breadcrumb - END *****/
+</style>
+<!-- RESET CSS - END -->
+
+<!-- GLOBAL STYLES - START -->
+<style>
+    /****** Main - START *****/
+    .lpMain {
+        font-family: "Open Sans", sans-serif;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        padding: 56px 20px;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        color: #333333;
+    }
+
+    @media (min-width: 768px) {
+        .lpMain {
+            padding: 56px 40px;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        } 
+    }
+
+    /*** <p></p> ***/
+    p.lpText {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        color: #333333;
+    }
+
+    @media (min-width: 768px) {
+        p.lpText {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        } 
+    }
+    /****** Main - END *****/
+
+
+    /***** Titles - START *****/
+
+    /*** <h1></h1> ***/
+    .lpTitle__h1--promo,
+    .section-title,
+    .section .section-title {
+        width: 100%;
+        padding: 16px 20px;
+        background-color: #FFCC00;
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    @media (min-width: 768px) {
+        .lpTitle__h1--promo,
+        .section-title,
+        .section .section-title {
+            padding: 16px 40px;
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    /*** <h2></h2> ***/
+    /* Utiliser la classe "lpTitle__h2" sur les balises <h2> */
+    .lpTitle__h2,
+    .block-wysiwyg h2 *,
+    .block-wysiwyg h2 {
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    @media (min-width: 768px) {
+        .lpTitle__h2,
+        .block-wysiwyg h2 *,
+        .block-wysiwyg h2  {
+            font-size: 1.125rem;
+            line-height: 1.125rem;
+        }
+    }
+    
+    /** h2 highlighted **/
+    /* Utiliser la classe "lpTitle__h2span" sur des balise span dans les h2 surlignés et leurs identifiers "--black" / "--orange" */
+    .lpTitle__h2span {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 6px;
+        color: #FFFFFF;
+    }
+    
+    .lpTitle__h2span--black {
+        background-color: #000000;
+    }
+    
+    .lpTitle__h2span--orange {
+        background-color: #E75012;
+    }
+
+    /*** <h3></h3> ***/
+    /* Utiliser la classe "lpTitle__h3" sur les balises <h3> */
+    
+    .lpTitle__h3 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+    }
+    
+    @media (min-width: 768px) {
+        .lpTitle__h3 {
+            font-size: 1.125rem;
+            line-height: 1.625rem;
+        }
+    }
+    /***** Titles - END *****/
+
+    /****** Images - START *****/
+    .lpImage--mobile {
+        display: block;
+    }
+
+    .lpImage--desktop {
+        display: none;
+    }
+    
+    @media (min-width: 768px) {
+        .lpImage--mobile {
+            display: none;
+        }
+
+        .lpImage--desktop {
+            display: block;
+        }
+    }
+    /****** Images - END *****/
+
+    /***** CTAS - START *****/
+    
+    /* Utiliser la classe "lpCTA" sur les ctas et ses identifiers "--primary" / "--secondary" */
+    .lpCTA {
+        display: block;
+        width: fit-content;
+        min-width: 200px;
+        padding: 16px 26px;
+        text-align: center;
+        font-weight: 700;
+        font-size: .875rem;
+        line-height: .75rem;
+        border-radius: 26px;
+        transition: all .3s ease-out; 
+    }
+    
+    @media (min-width: 768px) {
+        .lpCTA {
+            font-size: 1rem;
+            line-height: .875rem;
+        }
+    }
+    
+    .lpCTA--primary,
+    .block-wysiwyg a.lpCTA--primary {
+        background-color: #e75012;
+        color: #FFFFFF;
+    }
+
+    @media (min-width: 768px) {
+        .lpCTA--primary:hover,
+        .block-wysiwyg a.lpCTA--primary:hover {
+            background-color: #EF855A;
+        }
+    }
+    
+    .lpCTA--secondary,
+    .block-wysiwyg a.lpCTA--secondary {
+        background-color: #000000;
+        color: #FFFFFF;
+        border: 1px solid #000000;
+    }
+
+    @media (min-width: 768px) {
+        .lpCTA--secondary:hover,
+        .block-wysiwyg a.lpCTA--secondary:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+    }
+
+    .lpCTA--icon {
+        display: flex;
+        column-gap: 8px;
+        align-items: center;
+    }
+
+    .lpCTA--icon::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("/s/imgs/pages/2025/mars/op-volume/icon_new_tab.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    /***** CTAS - END *****/
+
+    /***** Lists *****/
+    
+    /*** <ol></ol> / <ul></ul> ***/
+    /* Utiliser la classe "lpList" sur les balises <ol>/<ul> */
+    
+    .lpList {
+        overflow: visible;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+    
+    @media (min-width: 768px) {
+        .lpList {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+    
+    /*** <li></li> ***/
+    /* Utiliser la classe "lpList__item" sur les balises <li> */
+    
+    /*** <li></li> ***/
+    /* Utiliser la classe "lpList__item" sur les balises <li> */
+    .lpList__item,
+    .block-wysiwyg ul li.lpList__item {
+        position: relative;
+        padding-left: 24px;
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+
+    @media (min-width: 768px) {
+        .lpList__item,
+        .block-wysiwyg ul li.lpList__item {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        } 
+    }
+    
+    .lpList__item::before,
+    .block-wysiwyg ul li.lpList__item:before {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #E75012;
+        position: absolute; 
+        left: 8px;
+        top: 8px;
+    }
+
+    /***** Links *****/
+    
+    /* Utiliser la classe "lpLink" sur les balises <a> pour les liens textuels et son identifier "--uppercase" */
+    .lpLink {
+        width: fit-content;
+        color: #333333;
+        text-decoration: underline;
+        font-size: .875rem;
+        line-height: 1.125rem;
+        font-weight: 700;
+        transition: all .3s ease-out;
+    }
+    
+    @media (min-width: 768px) {
+        .lpLink {
+            font-size: 1rem;
+            line-height: 1.125rem;
+            width: 100%;
+        }
+    
+        .lpLink:hover {
+            text-decoration-thickness: 15% !important;
+        }
+    }
+</style>
+<!-- GLOBAL STYLES - END -->
+
+<!-- PROMO STYLES - START -->
+<style>
+    .lpSection--promo {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+
+    .lpArticle--promo {
+        border: 8px dashed #FFCC00;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 16px;
+        padding: 32px;
+    }
+
+    @media (min-width: 768px) {
+        .lpArticle--promo {
+            flex-direction: row;
+            column-gap: 16px;
+        }
+    }
+
+
+    .lpArticle--promo .desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+        .lpArticle--promo .desc {
+            width: 100%;
+        }
+    }
+
+    .lpMain p.lpText--promo,
+    .block-wysiwyg .lpMain p.lpText--promo {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+
+    .lpText--promo span {
+        color: #e75012;
+    }
+
+    .lpAside--promoConditions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 8px;
+        row-gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+        .lpAside--promoConditions {
+            cursor: pointer;
+            column-gap: 16px;
+        } 
+    }
+
+    .lpAside--promoConditions .lpText,
+    .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
+        font-style: italic;
+        width: calc(100% - 22px);
+    }
+
+    @media (min-width: 768px) {
+        .lpAside--promoConditions .lpText,
+        .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
+            width: fit-content;
+            max-width: calc(100% - 22px);
+        }
+    }
+
+    .lpAside--promoConditions .lpText span {
+        color: #e75012;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    .lpMain .lpAside--promoConditions ul.lpList,
+    .block-wysiwyg .lpMain .lpAside--promoConditions ul.lpList {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: all .3s ease-out;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        opacity: 0;
+
+    }
+
+    .lpMain .lpAside--promoConditions.open ul.lpList,
+    .block-wysiwyg .lpMain .lpAside--promoConditions.open ul.lpList  {
+        max-height: 500px;
+        overflow: visible;
+        opacity: 1;
+    }
+
+    .lpAside--promoConditions .ctaMoreLess .verticalLine {
+        transition: all .3s ease-out;
+    }
+
+    .lpAside--promoConditions.open .ctaMoreLess .verticalLine {
+        opacity: 0;
+    }
+
+    @media (min-width: 768px) {
+        .lpAside--promoConditions:hover .ctaMoreLess circle {
+            fill: #E75012;
+        }
+
+        .lpAside--promoConditions:hover .ctaMoreLess line {
+            stroke: #FFFFFF;
+        }
+    }
+</style>
+<!-- PROMO STYLES - END -->
+
+<div class="lpMain lpMain--promo lpMain--dixJoursChoc">
+    <!-- ECNART PROMO - START -->
+    <section class="lpSection lpSection--promo">
+        <h2 class="lpTitle__h2">
+            <span class="lpTitle__h2span lpTitle__h2span--black">
+                Promo agence
+            </span>
+            <span class="lpTitle__h2span lpTitle__h2span--orange">
+                Du 3 au 15 mars 2025
+            </span>
+        </h2>
+        <article class="lpArticle lpArticle--promo">
+            <img src="/s/imgs/pages/2025/mars/op-volume/vignette-op-volume.jpg" alt="Promo Agence, 10 jours choc - POINT.P">
+            <section class="desc">
+                <p class="lpText">
+                    Du 4 au 16 novembre 2024, nous vous proposons une sélection de produits à prix promo :<br> gros œuvre, plâtrerie, isolation, couverture, bois & panneaux, menuiseries ou encore outillage, tout y passe.
+                </p>
+                <a href="/s/pdf/opcom/2025/op-volume/mars/Web_POINTP_10jours_chocs_mars2025_300x400_R1.pdf" class="lpCTA lpCTA--primary lpCTA--icon" target="_blank">
+                    Voir le dépliant promotionnel
+                </a>
+            </section>
+        </article>
+        <aside id="promoConditions" class="lpAside lpAside--promoConditions">
+            <p class="lpText lpText--small">Offres valable du 3 au 15 mars 2025, réservées aux clients professionnels du bâtiment ayant un compte ouvert en agence POINT.P et agissant pour les besoins de leur activité, <span>voir conditions</span></p>
+            <svg class="ctaMoreLess" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6.5" cy="6.71338" r="6" stroke="#E75012"/>
+                <line class="verticalLine" x1="6.61108" y1="3.21338" x2="6.61108" y2="10.2134" stroke="#E75012"/>
+                <line class="horizontalLine" x1="10" y1="6.82446" x2="3" y2="6.82446" stroke="#E75012"/>
+            </svg>
+            <ul class="lpList">
+                <li class="lpList__item">Les prix incluent l’éco-contribution liée à la REP PMCB (Responsabilité Élargie du Producteur sur les Produits et Matériaux de Construction du Bâtiment) et REP ABJ (Article de Bricolage et de Jardin). </li>
+                <li class="lpList__item">Les prix n’incluent pas l’éco-participation DEEE (Déchet d’Équipement Électrique et Électronique). *Produits et marques disponibles selon agence.</li>
+                <li class="lpList__item">Offres valables à vos conditions habituelles d’achat et non cumulables avec des conditions particulières et/ou autres promotions en cours.</li>
+                <li class="lpList__item">Prix consultables sur <a href="https://www.pointp.fr/" class="lpLink">pointp.fr</a></li>
+            </ul>
+        </aside>
+    </section>
+    <!-- ENCART PROMO - END -->
+</div>
+
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        var promoConditions = document.querySelector('#promoConditions'); 
+        promoConditions.addEventListener("click", function(){
+            promoConditions.classList.toggle('open'); 
+        })
+    });
+</script>
