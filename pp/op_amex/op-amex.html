@@ -254,7 +254,8 @@
     /***** CTAS - START *****/
     
     /* Utiliser la classe "lpCTA" sur les ctas et ses identifiers "--primary" / "--secondary" */
-    .lpCTA {
+    .lpCTA,
+    .c-wysiwyg a.lpCTA {
         display: block;
         width: fit-content;
         min-width: 200px;
@@ -265,30 +266,37 @@
         line-height: .75rem;
         border-radius: 26px;
         transition: all .3s ease-out; 
+        text-decoration-line: none;
     }
     
     @media (min-width: 768px) {
-        .lpCTA {
+        .lpCTA,
+        .c-wysiwyg a.lpCTA {
             font-size: 1rem;
             line-height: .875rem;
         }
     }
     
     .lpCTA--primary,
-    .block-wysiwyg a.lpCTA--primary {
+    .block-wysiwyg a.lpCTA--primary,
+    .c-wysiwyg a.lpCTA--primary {
         background-color: #e75012;
         color: #FFFFFF;
     }
 
     @media (min-width: 768px) {
         .lpCTA--primary:hover,
-        .block-wysiwyg a.lpCTA--primary:hover {
+        .block-wysiwyg a.lpCTA--primary:hover,
+        .c-wysiwyg a.lpCTA--primary:hover,
+        .c-wysiwyg a.lpCTA--primary:not(.is-disabled):hover {
             background-color: #EF855A;
+            color: #FFFFFF;
         }
     }
     
     .lpCTA--secondary,
-    .block-wysiwyg a.lpCTA--secondary {
+    .block-wysiwyg a.lpCTA--secondary,
+    .c-wysiwyg a.lpCTA--secondary {
         background-color: #000000;
         color: #FFFFFF;
         border: 1px solid #000000;
@@ -296,27 +304,74 @@
 
     @media (min-width: 768px) {
         .lpCTA--secondary:hover,
-        .block-wysiwyg a.lpCTA--secondary:hover {
+        .block-wysiwyg a.lpCTA--secondary:hover,
+        .c-wysiwyg a.lpCTA--secondary:hover,
+        .c-wysiwyg a.lpCTA--secondary:not(.is-disabled):hover {
             background-color: #FFFFFF;
             color: #000000;
         }
     }
 
-    .lpCTA--icon {
+    .lpCTA--tertiary,
+    .block-wysiwyg a.lpCTA--tertiary,
+    .c-wysiwyg a.lpCTA--tertiary {
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
+    @media (min-width: 768px) {
+        .lpCTA--tertiary:hover,
+        .block-wysiwyg a.lpCTA--tertiary:hover,
+        .c-wysiwyg a.lpCTA--tertiary:hover,
+        .c-wysiwyg a.lpCTA--tertiary:not(.is-disabled):hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+    }
+
+    .lpCTA--icon,
+    .c-wysiwyg a.lpCTA--icon {
         display: flex;
         column-gap: 8px;
         align-items: center;
+        justify-content: center;
     }
 
-    .lpCTA--icon::before {
+    .lpCTA--icon::before,
+    .c-wysiwyg a.lpCTA--icon::before {
         content: "";
         display: block;
         width: 16px;
         height: 16px;
-        background-image: url("/s/imgs/pages/2025/mars/op-volume/icon_new_tab.png");
+        background-image: url("/s/imgs/pages/landing-global/icon_copy_past_black.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+
+    @media (min-width: 768px) {
+        .lpCTA--tertiary.lpCTA--icon:hover::before,
+        .block-wysiwyg a.lpCTA--tertiary.lpCTA--icon:hover::before,
+        .c-wysiwyg a.lpCTA--tertiary.lpCTA--icon:hover::before {
+            background-image: url("/s/imgs/pages/landing-global/icon_copy_past_white.svg");
+        }
+    }
+
+    /** Block CTA **/
+    .lpBlock__CTA {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        align-items: center;
+    }
+
+    @media (min-width: 768px) {
+        .lpBlock__CTA {
+            flex-direction: row;
+            column-gap: 16px;
+            justify-content: center;
+        }
     }
     /***** CTAS - END *****/
 
@@ -401,13 +456,44 @@
     
         .lpLink:hover,
         .c-wysiwyg a.lpLink:hover,
-        .c-wysiwyg a:not(.is-disabled):hover {
+        .c-wysiwyg a.lpLink:not(.is-disabled):hover {
             color: #333333;
             -webkit-text-decoration-line: underline;
             text-decoration: underline;
             text-decoration-thickness: 15% !important;
         }
     }
+
+    /***** Info message - START *****/
+    .lpMessage {
+        z-index: -1;
+        opacity: 0;
+        background-color: aquamarine;
+        transition: all .3s ease-out;
+        position: fixed;
+        top: 250px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #F6F6F6;
+        transition: all .3s ease-out;
+        padding: 16px;
+        border-radius: 0 10px 10px 10px;
+        font-weight: 700;
+        border: 4px solid #000000;
+    }
+
+    .lpMessage.visible {
+        z-index: 1;
+        opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+        /* .lpMessage {
+            z-index: 1;
+            opacity: 1;
+        } */
+    }
+    /***** Info message - END *****/
 </style>
 <!-- GLOBAL STYLES - END -->
 
@@ -421,7 +507,7 @@
 
     .lpArticle--promo {
         border: 8px dashed #FFCC00;
-        border-radius: 10px;
+        border-radius: 0 10px 10px 10px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -430,13 +516,17 @@
         padding: 32px;
     }
 
+    .lpSection--productsOffer .lpArticle--promo {
+        border: none;
+        background-color: #F6F6F6;
+    }
+
     @media (min-width: 768px) {
         .lpArticle--promo {
             flex-direction: row;
             column-gap: 16px;
         }
     }
-
 
     .lpArticle--promo .desc {
         display: flex;
@@ -453,8 +543,6 @@
 
     .lpMain p.lpText--promo,
     .block-wysiwyg .lpMain p.lpText--promo {
-        font-size: 1.25rem;
-        line-height: 1.875rem;
         text-transform: uppercase;
         font-weight: 900;
     }
@@ -537,166 +625,82 @@
 </style>
 <!-- PROMO STYLES - END -->
 
-<!-- PROMO STYLES - START -->
-<style>
-    .lpSection--promo {
-        display: flex;
-        flex-direction: column;
-        row-gap: 16px;
-    }
-
-    .lpArticle--promo {
-        border: 8px dashed #FFCC00;
-        border-radius: 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 16px;
-        padding: 32px;
-    }
-
-    @media (min-width: 768px) {
-        .lpArticle--promo {
-            flex-direction: row;
-            column-gap: 16px;
-        }
-    }
-
-
-    .lpArticle--promo .desc {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-        .lpArticle--promo .desc {
-            width: 100%;
-        }
-    }
-
-    .lpMain p.lpText--promo,
-    .block-wysiwyg .lpMain p.lpText--promo {
-        font-size: 1.25rem;
-        line-height: 1.875rem;
-        text-transform: uppercase;
-        font-weight: 900;
-    }
-
-    .lpText--promo span {
-        color: #e75012;
-    }
-
-    .lpAside--promoConditions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        column-gap: 8px;
-        row-gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions {
-            cursor: pointer;
-            column-gap: 16px;
-        } 
-    }
-
-    .lpAside--promoConditions .lpText,
-    .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
-        font-style: italic;
-        width: calc(100% - 24px);
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions .lpText,
-        .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
-            width: fit-content;
-            max-width: calc(100% - 32px);
-        }
-    }
-
-    .lpAside--promoConditions .lpText span {
-        color: #e75012;
-        font-weight: 500;
-        text-decoration: underline;
-    }
-
-    .lpMain .lpAside--promoConditions ul.lpList,
-    .block-wysiwyg .lpMain .lpAside--promoConditions ul.lpList {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: all .3s ease-out;
-        font-size: .875rem;
-        line-height: 1.375rem;
-        opacity: 0;
-
-    }
-
-    .lpMain .lpAside--promoConditions.open ul.lpList,
-    .block-wysiwyg .lpMain .lpAside--promoConditions.open ul.lpList  {
-        max-height: 500px;
-        overflow: visible;
-        opacity: 1;
-    }
-
-    .lpAside--promoConditions .ctaMoreLess .verticalLine {
-        transition: all .3s ease-out;
-    }
-
-    .lpAside--promoConditions.open .ctaMoreLess .verticalLine {
-        opacity: 0;
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions:hover .ctaMoreLess circle {
-            fill: #E75012;
-        }
-
-        .lpAside--promoConditions:hover .ctaMoreLess line {
-            stroke: #FFFFFF;
-        }
-    }
-</style>
-<!-- PROMO STYLES - END -->
-
-<div class="lpMain lpMain--promo lpMain--dixJoursChoc">
+<div class="lpMain lpMain--promo lpMain--amex">
     <!-- ECNART PROMO - START -->
-    <section class="lpSection lpSection--promo">
-        <h2 class="lpTitle__h2">
-            <span class="lpTitle__h2span lpTitle__h2span--black">
-                Promo agence
-            </span>
-            <span class="lpTitle__h2span lpTitle__h2span--orange">
-                Du 3 au 15 mars 2025
-            </span>
-        </h2>
+    <h2 class="lpTitle__h2">
+        <span class="lpTitle__h2span lpTitle__h2span--black">
+            Offre spéciale
+        </span>
+        <span class="lpTitle__h2span lpTitle__h2span--orange">
+            Du 15 mars au 10 mai 2025
+        </span>
+    </h2>
+    <section class="lpSection lpSection--promo lpSection--promoCode">
         <article class="lpArticle lpArticle--promo">
-            <img src="/s/imgs/pages/2025/mars/op-volume/vignette-op-volume.jpg" alt="Promo Agence, 10 jours choc - POINT.P">
             <section class="desc">
-                <p class="lpText">
-                    Du 4 au 16 novembre 2024, nous vous proposons une sélection de produits à prix promo :<br> gros œuvre, plâtrerie, isolation, couverture, bois & panneaux, menuiseries ou encore outillage, tout y passe.
+                <p class="lpText lpText--promo">
+                    Profitez de <span>-80€</span> (TTC) dès 400€ (TTC) d'achat avec le code :
                 </p>
-                <a href="/s/pdf/opcom/2025/op-volume/mars/Web_POINTP_10jours_chocs_mars2025_300x400_R1.pdf" class="lpCTA lpCTA--primary lpCTA--icon" target="_blank">
-                    Voir le dépliant promotionnel
+                <a data-text="AMEX80" class="lpCTA lpCTA--tertiary lpCTA--icon lpCTA--copyPast">
+                    AMEX80
                 </a>
+            </section>
+            <section class="desc">
+                <p class="lpText lpText--promo">
+                    Profitez de <span>-150€</span> (TTC) dès 700€ (TTC) d'achat avec le code :
+                </p>
+                <a data-text="AMEX150" class="lpCTA lpCTA--tertiary lpCTA--icon lpCTA--copyPast">
+                    AMEX150
+                </a>
+            </section>
+            <section id="confirmationMessage" class="lpMessage lpMessage--confirmation">
+                <p class="lpText">Le code promo a bien été copié !</p>
             </section>
         </article>
         <aside id="promoConditions" class="lpAside lpAside--promoConditions">
-            <p class="lpText lpText--small">Offres valable du 3 au 15 mars 2025, réservées aux clients professionnels du bâtiment ayant un compte ouvert en agence POINT.P et agissant pour les besoins de leur activité, <span>voir conditions</span></p>
+            <p class="lpText">Offre valable du 15 mars au 10 mai 2025, uniquement sur le site pointp.fr et l’application mobile POINT.P,  <span>voir conditions</span></p>
             <svg class="ctaMoreLess" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="6.5" cy="6.71338" r="6" stroke="#E75012"/>
                 <line class="verticalLine" x1="6.61108" y1="3.21338" x2="6.61108" y2="10.2134" stroke="#E75012"/>
                 <line class="horizontalLine" x1="10" y1="6.82446" x2="3" y2="6.82446" stroke="#E75012"/>
             </svg>
             <ul class="lpList">
-                <li class="lpList__item">Les prix incluent l’éco-contribution liée à la REP PMCB (Responsabilité Élargie du Producteur sur les Produits et Matériaux de Construction du Bâtiment) et REP ABJ (Article de Bricolage et de Jardin). </li>
-                <li class="lpList__item">Les prix n’incluent pas l’éco-participation DEEE (Déchet d’Équipement Électrique et Électronique). *Produits et marques disponibles selon agence.</li>
-                <li class="lpList__item">Offres valables à vos conditions habituelles d’achat et non cumulables avec des conditions particulières et/ou autres promotions en cours.</li>
-                <li class="lpList__item">Prix consultables sur <a href="https://www.pointp.fr/" class="lpLink">pointp.fr</a></li>
+                <p class="lpText">Code promo non éligible :</p>
+                <li class="lpList__item">Sur les produits concernés par les opérations commerciales en cours.</li>
+                <li class="lpList__item">Sur les produits en barème quantité (« prix dégressif » sur le site).</li>
+                <li class="lpList__item">Sur les tarifs collaborateurs.</li>
+                <li class="lpList__item">Sur les frais de livraison.</li>
+                <li class="lpList__item">Sur la validation des devis en ligne.</li>
+            </ul>
+        </aside>
+    </section>
+    <section class="lpSection lpSection--promo lpSection--productsOffer">
+        <article class="lpArticle lpArticle--promo">
+            <section class="desc">
+                <p class="lpText lpText--promo">
+                    Profitez également d’offres spéciales sur des produits <br><span>de revêtements et d’aménagements extérieurs</span><br> en agence et en ligne
+                </p>
+                <p class="lpText">Pour visualiser l'offre et les prix promos dans la liste des produits ci-dessous, rattachez-vous à l'agence de votre choix ou connectez-vous à votre espace personnel :</p>
+                <div class="lpBlock__CTA lpBlock__CTA--connexion">
+                    <a href="https://www.pointp.fr/connexion" class="lpCTA lpCTA--primary">
+                        Me connecter
+                    </a>
+                    <a href="https://www.pointp.fr/inscription/nouveau-client" class="lpCTA lpCTA--secondary">
+                        Créer mon compte
+                    </a>
+                </div>
+            </section>
+        </article>
+        <aside id="promoConditions" class="lpAside lpAside--promoConditions">
+            <p class="lpText">Offre valable du 15 mars au 10 mai 2025, en agence et showroom POINT.P, sur le site pointp.fr et l’application mobile POINT.P, <span>voir conditions</span></p>
+            <svg class="ctaMoreLess" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6.5" cy="6.71338" r="6" stroke="#E75012"/>
+                <line class="verticalLine" x1="6.61108" y1="3.21338" x2="6.61108" y2="10.2134" stroke="#E75012"/>
+                <line class="horizontalLine" x1="10" y1="6.82446" x2="3" y2="6.82446" stroke="#E75012"/>
+            </svg>
+            <ul class="lpList">
+                <li class="lpList__item">Offre valable uniquement sur les articles présents sur cette page.</li>
+                <li class="lpList__item">Offre valable uniquement pendant la période de l'opération commerciale.</li>
             </ul>
         </aside>
     </section>
@@ -705,11 +709,70 @@
 
 <!-- JS - START -->
 <script defer>
+
+    /***** Affichage des conditions - START *****/
     document.addEventListener("DOMContentLoaded", function () {
-        var promoConditions = document.querySelector('#promoConditions'); 
-        promoConditions.addEventListener("click", function(){
-            promoConditions.classList.toggle('open'); 
-        })
+        // Sélectionne tous les éléments avec la classe "lpAside--promoConditions"
+        var promoConditionsElements = document.querySelectorAll('.lpAside--promoConditions');
+
+        // Ajoute un écouteur d'événement à chaque élément
+        promoConditionsElements.forEach(function (element) {
+            element.addEventListener("click", function () {
+                // Vérifie si l'élément cliqué a déjà la classe "open"
+                var isOpen = element.classList.contains('open');
+
+                // Retire la classe "open" de tous les éléments
+                promoConditionsElements.forEach(function (el) {
+                    el.classList.remove('open');
+                });
+
+                // Si l'élément cliqué n'avait pas la classe "open", on l'ajoute
+                if (!isOpen) {
+                    element.classList.add('open');
+                }
+            });
+        });
     });
+    /***** Affichage des conditions - END *****/
+
+    /***** Copie du text dans le press papier - START *****/
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Fonction pour copier le texte
+        function copyToClipboard(text) {
+            // Crée un élément temporaire pour contenir le texte
+            var tempElement = document.createElement("textarea");
+            tempElement.value = text;
+            document.body.appendChild(tempElement);
+
+            // Sélectionne et copie le texte
+            tempElement.select();
+            document.execCommand("copy");
+
+            // Supprime l'élément temporaire
+            document.body.removeChild(tempElement);
+        }
+
+        // Ajoute un écouteur d'événement pour chaque bouton CTA
+        var buttons = document.querySelectorAll('.lpCTA--copyPast');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                var textToCopy = button.getAttribute('data-text');
+                copyToClipboard(textToCopy);
+                
+                // Affiche un message de confirmation
+                var confirmationMessage = document.getElementById('confirmationMessage');
+                // confirmationMessage.style.display = 'block';
+                confirmationMessage.classList.add('visible');
+                
+                // Cache le message après 2 secondes
+                setTimeout(() => {
+                    // confirmationMessage.style.display = 'none';
+                    confirmationMessage.classList.remove('visible');
+                }, 2000);
+            });
+        });
+    });
+    /***** Copie du text dans le press papier - END *****/
+
 </script>
 <!-- JS - END -->

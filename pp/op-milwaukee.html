@@ -537,179 +537,144 @@
 </style>
 <!-- PROMO STYLES - END -->
 
-<!-- PROMO STYLES - START -->
+<!-- OTHER - START -->
 <style>
-    .lpSection--promo {
+    /****** Section 3x Images - START *****/ 
+    .coopSection--3xImages {
         display: flex;
         flex-direction: column;
-        row-gap: 16px;
+        row-gap: 24px;
+        margin: 0 auto;
     }
 
-    .lpArticle--promo {
-        border: 8px dashed #FFCC00;
-        border-radius: 10px;
+    .coopSection--3xImages .coopArticle--desc {
+        padding: 16px;
         text-align: center;
         display: flex;
         flex-direction: column;
+        row-gap: 24px;
         align-items: center;
-        row-gap: 16px;
-        padding: 32px;
+    }
+
+    .block__3xImages {
+        position: relative;
+        max-width: 300px;
     }
 
     @media (min-width: 768px) {
-        .lpArticle--promo {
+        .coopSection--3xImages {
+            display: flex;
             flex-direction: row;
-            column-gap: 16px;
-        }
-    }
-
-
-    .lpArticle--promo .desc {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-        .lpArticle--promo .desc {
-            width: 100%;
-        }
-    }
-
-    .lpMain p.lpText--promo,
-    .block-wysiwyg .lpMain p.lpText--promo {
-        font-size: 1.25rem;
-        line-height: 1.875rem;
-        text-transform: uppercase;
-        font-weight: 900;
-    }
-
-    .lpText--promo span {
-        color: #e75012;
-    }
-
-    .lpAside--promoConditions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        column-gap: 8px;
-        row-gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions {
-            cursor: pointer;
-            column-gap: 16px;
-        } 
-    }
-
-    .lpAside--promoConditions .lpText,
-    .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
-        font-style: italic;
-        width: calc(100% - 24px);
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions .lpText,
-        .font-open-sans .block-wysiwyg .lpAside--promoConditions p.lpText {
-            width: fit-content;
-            max-width: calc(100% - 32px);
-        }
-    }
-
-    .lpAside--promoConditions .lpText span {
-        color: #e75012;
-        font-weight: 500;
-        text-decoration: underline;
-    }
-
-    .lpMain .lpAside--promoConditions ul.lpList,
-    .block-wysiwyg .lpMain .lpAside--promoConditions ul.lpList {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: all .3s ease-out;
-        font-size: .875rem;
-        line-height: 1.375rem;
-        opacity: 0;
-
-    }
-
-    .lpMain .lpAside--promoConditions.open ul.lpList,
-    .block-wysiwyg .lpMain .lpAside--promoConditions.open ul.lpList  {
-        max-height: 500px;
-        overflow: visible;
-        opacity: 1;
-    }
-
-    .lpAside--promoConditions .ctaMoreLess .verticalLine {
-        transition: all .3s ease-out;
-    }
-
-    .lpAside--promoConditions.open .ctaMoreLess .verticalLine {
-        opacity: 0;
-    }
-
-    @media (min-width: 768px) {
-        .lpAside--promoConditions:hover .ctaMoreLess circle {
-            fill: #E75012;
+            justify-content: space-between;
         }
 
-        .lpAside--promoConditions:hover .ctaMoreLess line {
-            stroke: #FFFFFF;
+        .block__3xImages {
+            width: calc(100% / 3 - 16px);
+            max-width: 400px;
+        }
+
+        .coopSection--3xImages .lpImage {
+            max-width: 400px !important;
+        }
+
+        .coopSection--3xImages .coopArticle--desc {
+            padding: 24px;
         }
     }
+    /****** Section 3x Images - END *****/
 </style>
-<!-- PROMO STYLES - END -->
+<!-- OTHER - END -->
 
-<div class="lpMain lpMain--promo lpMain--dixJoursChoc">
+<div class="lpMain lpMain--promo lpMain--milwaukee">
     <!-- ECNART PROMO - START -->
     <section class="lpSection lpSection--promo">
         <h2 class="lpTitle__h2">
             <span class="lpTitle__h2span lpTitle__h2span--black">
-                Promo agence
+                Offre Milwaukee
             </span>
             <span class="lpTitle__h2span lpTitle__h2span--orange">
-                Du 3 au 15 mars 2025
+                Du 1er mars au 30 mai 2025
             </span>
         </h2>
         <article class="lpArticle lpArticle--promo">
-            <img src="/s/imgs/pages/2025/mars/op-volume/vignette-op-volume.jpg" alt="Promo Agence, 10 jours choc - POINT.P">
             <section class="desc">
-                <p class="lpText">
-                    Du 4 au 16 novembre 2024, nous vous proposons une sélection de produits à prix promo :<br> gros œuvre, plâtrerie, isolation, couverture, bois & panneaux, menuiseries ou encore outillage, tout y passe.
+                <p class="lpText lpText--promo">
+                    🎁 Recevez une <span>batterie</span> ! À partir de <span>790€</span> (HT)
                 </p>
-                <a href="/s/pdf/opcom/2025/op-volume/mars/Web_POINTP_10jours_chocs_mars2025_300x400_R1.pdf" class="lpCTA lpCTA--primary lpCTA--icon" target="_blank">
-                    Voir le dépliant promotionnel
-                </a>
             </section>
         </article>
         <aside id="promoConditions" class="lpAside lpAside--promoConditions">
-            <p class="lpText lpText--small">Offres valable du 3 au 15 mars 2025, réservées aux clients professionnels du bâtiment ayant un compte ouvert en agence POINT.P et agissant pour les besoins de leur activité, <span>voir conditions</span></p>
+            <p class="lpText lpText--small">Offre valable du 1er mars au 30 mai 2025, sur le site pointp.fr, sur l’application mobile POINT.P et en agence POINT.P, <span>voir conditions</span></p>
             <svg class="ctaMoreLess" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="6.5" cy="6.71338" r="6" stroke="#E75012"/>
                 <line class="verticalLine" x1="6.61108" y1="3.21338" x2="6.61108" y2="10.2134" stroke="#E75012"/>
                 <line class="horizontalLine" x1="10" y1="6.82446" x2="3" y2="6.82446" stroke="#E75012"/>
             </svg>
             <ul class="lpList">
-                <li class="lpList__item">Les prix incluent l’éco-contribution liée à la REP PMCB (Responsabilité Élargie du Producteur sur les Produits et Matériaux de Construction du Bâtiment) et REP ABJ (Article de Bricolage et de Jardin). </li>
-                <li class="lpList__item">Les prix n’incluent pas l’éco-participation DEEE (Déchet d’Équipement Électrique et Électronique). *Produits et marques disponibles selon agence.</li>
-                <li class="lpList__item">Offres valables à vos conditions habituelles d’achat et non cumulables avec des conditions particulières et/ou autres promotions en cours.</li>
-                <li class="lpList__item">Prix consultables sur <a href="https://www.pointp.fr/" class="lpLink">pointp.fr</a></li>
+                <li class="lpList__item">L’offre est valable sur la gamme M18.</li>
+                <li class="lpList__item">Le montant doit être atteint sur une seule et même facture (cumul de factures non accepté).</li>
+                <li class="lpList__item">Chaque client peut bénéfi cier de 2 participations maximum auprès des revendeurs autorisés.</li>
             </ul>
         </aside>
     </section>
     <!-- ENCART PROMO - END -->
+
+    <!-- Section Text - START -->
+    <section class="lpSection coopSection coopSection--text">
+        <h3 class="lpTitle__h3">
+            Les 3 paliers de montant pour gagner votre batterie : 
+        </h3>
+        <article class="lpArticle coopArticle coopArticle--text">
+            <ul class="lpList">
+                <li class="lpList__item">
+                    À partir de 790 € HT d'achats → Batterie HIGH OUTPUT™ 5,5Ah offerte
+                </li>
+                <li class="lpList__item">
+                    À partir de 990 € HT d'achats → Batterie FORGE™ 8Ah offerte
+                </li>
+                <li class="lpList__item">
+                    À partir de 1 190 € HT d'achats → Batterie FORGE™ 12Ah offerte
+                </li>
+            </ul>
+        </article>
+    </section>
+    <!-- Section Text - END -->
+
+    <!-- Section Text - START -->
+    <section class="lpSection coopSection coopSection--text">
+        <h3 class="lpTitle__h3">
+            Comment ça marche ? 
+        </h3>
+        <article class="lpArticle coopArticle coopArticle--text">
+            <ul class="lpList">
+                <li class="lpList__item">
+                    Vous atteignez l'un des montants minimum requis en HT.
+                </li>
+                <li class="lpList__item">
+                    Vous téléchargez votre facture sur votre <a class="lpLink" href="https://www.pointp.fr/connexion">Espace Mon Compte</a> ou vous la demandez en agence.
+                </li>
+                <li class="lpList__item">
+                    Vous vous rendez sur le site dédié <a class="lpLink" href="https://www.milwaukeeredcompense.fr" target="_blank">www.milwaukeeredcompense.fr</a>, vous vous y créez un compte, vous prenez connaissance du règlement et y transmetez vos preuves d’achat, à savoir les photocopies des factures émises.
+                </li>
+                <li class="lpList__item">
+                    Après validation, vous recevez votre batterie !
+                </li>
+            </ul>
+        </article>
+    </section>
+    <!-- Section Text - END -->
 </div>
 
 <!-- JS - START -->
 <script defer>
+
+    /***** Condtions open/close - START *****/
     document.addEventListener("DOMContentLoaded", function () {
         var promoConditions = document.querySelector('#promoConditions'); 
         promoConditions.addEventListener("click", function(){
             promoConditions.classList.toggle('open'); 
         })
     });
+    /***** Condtions open/close - END *****/
 </script>
 <!-- JS - END -->
